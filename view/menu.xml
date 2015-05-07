@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <menuitem name="Estadisticas CM" id="menu_root" sequence="110"/>
+
+        <menuitem name="General" id="menu_general" parent="menu_root"/>
+
+        <record model="ir.actions.act_window" id="action_statistic">
+            <field name="name">statistic</field>
+            <field name="res_model">cmstats.stat</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Estadisticas" id="menu_statistic" parent="menu_general"
+            sequence="2" action="action_statistic"/>
+
+
+        <record model="ir.ui.view" id="statistic_form">
+            <field name="name">stat form view</field>
+            <field name="model">cmstats.stat</field>
+            <field name="arch" type="xml">
+                <form string="Statistic form">
+                    <sheet>
+                        <group col="2">
+                            <field name="name"/>
+                            <field name="sede"/>
+                            <field name ="nuevas"/>
+                            <field name ="subsecuentes"/>
+                            <field name="nota"/>
+                            <field name="det" string="Servicios"/>
+                            <field name="id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <record model="ir.actions.act_window" id="action_det">
+            <field name="name">det</field>
+            <field name="res_model">cmstats.det</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="det" id="menu_det" parent="menu_general"
+            sequence="4" action="action_det"/>
+
+        <record model="ir.ui.view" id="det_form">
+            <field name="name">det form view</field>
+            <field name="model">cmstats.det</field>
+            <field name="arch" type="xml">
+                <form string="det form">
+                    <sheet>
+                        <group col="4">
+                            <field name="institucion"/>
+                            <field name="servicios"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <record model="ir.ui.view" id="statistic_tree">
+            <field name="name">stats.tree</field>
+            <field name="model">cmstats.stat</field>
+            <field name="arch" type="xml">
+                <tree string="Idea list">
+                    <field name="sede"/>
+                    <field name="name" string="Fecha"/>
+                    <field name="id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="det_form">
+            <field name="name">det form view</field>
+            <field name="model">cmstats.det</field>
+            <field name="arch" type="xml">
+                <form string="Det form">
+                    <sheet>
+                        <group col="2">
+                            <field name="institucion" string="Institucion"/>
+                            <field name="servicios"/>
+                            <field name="stat"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="det_tree">
+            <field name="name">det.tree</field>
+            <field name="model">cmstats.det</field>
+            <field name="arch" type="xml">
+                <tree string="Servicios">
+                    <field name="institucion" string="Institución"/>
+                    <field name="servicios" string="Cantidad"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="sede_form">
+            <field name="name">sede form view</field>
+            <field name="model">cmstats.sede</field>
+            <field name="arch" type="xml">
+                <form string="Sede form">
+                    <sheet>
+                        <group col="2">
+                            <field name="name"/>
+                            <field name="largename"/>
+                            <field name="description" string="Nota"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="institucion_form">
+            <field name="name">institucion form view</field>
+            <field name="model">cmstats.institucion</field>
+            <field name="arch" type="xml">
+                <form string="Institucion form">
+                    <sheet>
+                        <group col="2">
+                            <field name="name" string="Nombre Corto"/>
+                            <field name="description" string="Nombre"/>
+                            <field name="modulo" string="Módulo"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <!--        
+        <record model="ir.ui.view" id="statistic_tree">
+            <field name="name">statistic form view</field>
+            <field name="model">cmstatistic.statistic</field>
+            <field name="arch" type="xml">
+                <form string="Statistic form2">
+                    <tree string="Idea list">
+                        <field name="name"/>
+                        <field name="inventor_id"/>
+                    </tree>
+                </form>
+            </field>
+        </record>
+        -->
+    
+    </data>
+</openerp>
